@@ -12,7 +12,7 @@ const endpoints = [
 ];
 
 endpoints.forEach(({ id, url }) => {
-  fetch(url)
+  fetch('https://mon-jardin-backend.onrender.com/api/orders')
     .then(res => res.json())
     .then(data => {
       const list = document.getElementById(`${id}-list`);
@@ -29,3 +29,4 @@ endpoints.forEach(({ id, url }) => {
       console.error(`Error fetching ${id}:`, err);
     });
 });
+

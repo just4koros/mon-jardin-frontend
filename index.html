@@ -4,36 +4,91 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mon Jardin ERP Dashboard</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #2e7d32;
+    }
+    .module {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      padding: 15px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .module-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+    .module-content {
+      margin-top: 10px;
+    }
+    button {
+      background: #2e7d32;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1b5e20;
+    }
+  </style>
 </head>
 <body>
   <h1>Mon Jardin ERP Dashboard</h1>
 
-  <section id="orders" class="module">
-    <h2 onclick="toggleSection('orders')">Orders</h2>
-    <ul id="orders-list" class="hidden"></ul>
-  </section>
+  <div class="module">
+    <div class="module-header" onclick="loadOrders()">
+      <h2>Orders</h2>
+      <button onclick="loadOrders()">Refresh</button>
+    </div>
+    <div id="orders-section" class="module-content"></div>
+  </div>
 
-  <section id="inventory" class="module">
-    <h2 onclick="toggleSection('inventory')">Inventory</h2>
-    <ul id="inventory-list" class="hidden"></ul>
-  </section>
+  <div class="module">
+    <div class="module-header" onclick="loadInventory()">
+      <h2>Inventory</h2>
+      <button onclick="loadInventory()">Refresh</button>
+    </div>
+    <div id="inventory-section" class="module-content"></div>
+  </div>
 
-  <section id="distribution" class="module">
-    <h2 onclick="toggleSection('distribution')">Distribution</h2>
-    <ul id="distribution-list" class="hidden"></ul>
-  </section>
+  <div class="module">
+    <div class="module-header" onclick="loadDistribution()">
+      <h2>Distribution</h2>
+      <button onclick="loadDistribution()">Refresh</button>
+    </div>
+    <div id="distribution-section" class="module-content"></div>
+  </div>
 
-  <section id="payments" class="module">
-    <h2 onclick="toggleSection('payments')">Payments</h2>
-    <ul id="payments-list" class="hidden"></ul>
-  </section>
+  <div class="module">
+    <div class="module-header" onclick="loadPayments()">
+      <h2>Payments</h2>
+      <button onclick="loadPayments()">Refresh</button>
+    </div>
+    <div id="payments-section" class="module-content"></div>
+  </div>
 
-  <section id="feedback" class="module">
-    <h2 onclick="toggleSection('feedback')">Feedback</h2>
-    <ul id="feedback-list" class="hidden"></ul>
-  </section>
+  <div class="module">
+    <div class="module-header" onclick="loadFeedback()">
+      <h2>Feedback</h2>
+      <button onclick="loadFeedback()">Refresh</button>
+    </div>
+    <div id="feedback-section" class="module-content"></div>
+  </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+

@@ -12,9 +12,19 @@ const endpoints = [
 ];
 
 endpoints.forEach(({ id, url }) => {
-  fetch('https://mon-jardin-backend.onrender.com/api/orders')
-    .then(res => res.json())
-    .then(data => {
+fetch('https://mon-jardin-backend.onrender.com/api/orders', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    user_id: 1,
+    product_id: 1,
+    quantity: 2,
+    price: 20,
+    delivery_location: 'Kahawa Sukari'
+  })
+})
+.then(res => res.json())
+.then(data => console.log('Order created:', data));
       const list = document.getElementById(`${id}-list`);
       list.innerHTML = ''; // Clear old content
       data.forEach(item => {
@@ -29,4 +39,5 @@ endpoints.forEach(({ id, url }) => {
       console.error(`Error fetching ${id}:`, err);
     });
 });
+
 
